@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>COVID-19 Dashboard for Lewisham</title>
+</head>
+<body>
+<h1>Cases</h1>
+<p>Data as of {{cases_date | date}}.</p>
+<ul>
+    <li>Case rate per 100,000 (all ages): {{cases_rate | thousands}}</li>
+    <li>Change in case rate per 100,000 (all ages): {{cases_change}}%</li>
+    <li>Case rate per 100,000 (over 60s): {{cases_rate_60s | thousands}}</li>
+</ul>
+
+<h1>Vaccinations</h1>
+<p>Data up to and including {{vaccinations_date | date}}.</p>
+<ul>
+    <li>Uptake of first dose (for all 12+): {{vaccinations_dose_1}}%</li>
+    <li>Uptake of second dose (for all 12+): {{vaccinations_dose_2}}%</li>
+    <li>Uptake of booster or third dose (for all 12+): {{vaccinations_dose_3}}%</li>
+</ul>
+</body>
+</html>
