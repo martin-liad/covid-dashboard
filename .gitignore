@@ -1,6 +1,6 @@
 # Temporary project files
 data/
-pages/
+output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

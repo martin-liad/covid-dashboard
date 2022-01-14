@@ -17,10 +17,11 @@ project_dir = os.path.dirname(os.path.realpath(__file__))
 template_dir = f"{project_dir}/templates"
 
 data_dir = f"{project_dir}/data"
-pages_dir = f"{project_dir}/pages/text"
+output_dir = f"{project_dir}/output"
+output_text_dir = f"{output_dir}/text"
 
 os.makedirs(data_dir, exist_ok=True)
-os.makedirs(pages_dir, exist_ok=True)
+os.makedirs(output_text_dir, exist_ok=True)
 
 # Coronavirus API 
 # https://coronavirus.data.gov.uk/details/developers-guide/main-api
@@ -157,5 +158,5 @@ j2_env = jinja2.Environment(
 j2_env.filters['thousands'] = format_thousands
 j2_env.filters['date'] = format_date
 
-with open(f"{pages_dir}/text.html", 'w') as f:
+with open(f"{output_text_dir}/index.html", 'w') as f:
     f.write(j2_env.get_template('text.html').render(ctx))
