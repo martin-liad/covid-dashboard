@@ -31,7 +31,7 @@ jobs:
       - uses: n1hility/cancel-previous-runs@v2
         with: 
           token: ${{ secrets.GITHUB_TOKEN }}
-          workflow: deploy.yml
+          workflow: build.yml
           
       # Checks-out your repository under $GITHUB_WORKSPACE
       - name: Checkout
