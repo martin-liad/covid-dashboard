@@ -18,10 +18,6 @@ template_dir = f"{project_dir}/templates"
 
 data_dir = f"{project_dir}/data"
 output_dir = f"{project_dir}/output"
-output_text_dir = f"{output_dir}/text"
-
-os.makedirs(data_dir, exist_ok=True)
-os.makedirs(output_text_dir, exist_ok=True)
 
 # Coronavirus API 
 # https://coronavirus.data.gov.uk/details/developers-guide/main-api
@@ -100,6 +96,7 @@ if response.status_code >= 400:
     raise RuntimeError(f'Request failed: { response.text }')
 
 # Write to local cache
+os.makedirs(data_dir, exist_ok=True)
 with open(f"{data_dir}/text-page-data.json", 'w') as f:
     json.dump(response.json(), f)
     print(response.text[:256] + '...')
@@ -158,5 +155,6 @@ j2_env = jinja2.Environment(
 j2_env.filters['thousands'] = format_thousands
 j2_env.filters['date'] = format_date
 
-with open(f"{output_text_dir}/index.html", 'w') as f:
+os.makedirs(output_dir, exist_ok=True)
+with open(f"{output_dir}/text/index.html", 'w') as f:
     f.write(j2_env.get_template('text.html').render(ctx))
