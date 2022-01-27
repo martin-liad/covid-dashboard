@@ -1,0 +1,110 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://lewisham.gov.uk/assets/static/favicon.ico" type="image/x-icon">
+    <title>COVID-19 Dashboard for Lewisham</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            font-family: "Open Sans", sans-serif;
+            font-size: 62.5%;
+            font-weight: 400;
+            color: #3a3a3a;
+        }
+        body {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+        p {
+            margin: 1.25em 0 0;
+            line-height: 1.5;
+            letter-spacing: -0.333333px;
+            color: inherit;
+        }
+        h2 {
+            margin: 1.5em 0 0;
+            line-height: 1.25;
+            font-family: "Open Sans", sans-serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.333333px;
+            color: #2b4972;
+        }
+        @media (min-width: 720px) {
+            h2 {
+                line-height: 3.6rem;
+                font-size: 2.4rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            h2 {
+                line-height: 4.2rem;
+                font-size: 3rem;
+            }
+        }
+        .accessibility-hidden {
+            position: absolute;
+            top: 0;
+            left: -999999999px;
+            width: 1px;
+            height: 1px;
+        }
+        .data-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style-type: none;
+            margin: 1em 0 0 0;
+            padding: 0;
+        }
+        .data-cards li {
+            flex: 0 0 130px;
+            margin: 0.5em;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+        }
+        .data-cards .good {
+            background: #cce2d8;
+            color: #005a30;
+        }
+        .data-cards .bad {
+            background: #f6d7d2;
+            color: #942514;
+        }
+    </style>  
+    <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+<body>
+<h2>Cases</h2>
+<p>Data as of {{cases_date | date}}.</p>
+<ul class="data-cards">
+    <li>Case rate per 100,000 (all ages): <b>{{cases_rate | thousands}}</b></li>
+    {% if cases_change>0 -%}<li class="bad">
+    {% elif cases_change<0 -%}<li class="good">
+    {% else -%}<li>
+    {% endif -%}
+        Change in case rate per 100,000 (all ages): 
+        {% if cases_change>0 %}↑&nbsp;{% elif cases_change<0 %}↓&nbsp;{% else %}{% endif -%}
+        <b>{{cases_change}}%</b></li>
+    <li>Case rate per 100,000 (over 60s): <b>{{cases_rate_60s | thousands}}</b></li>
+</ul>
+
+<h2>Vaccinations</h2>
+<p>Data as of {{vaccinations_date | date}}.</p>
+<ul class="data-cards">
+    <li>Uptake of first dose (for all 12+): <b>{{vaccinations_dose_1}}%</b></li>
+    <li>Uptake of second dose (for all 12+): <b>{{vaccinations_dose_2}}%</b></li>
+    <li>Uptake of booster or third dose (for all 12+): <b>{{vaccinations_dose_3}}%</b></li>
+</ul>
+</body>
+</html>

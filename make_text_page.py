@@ -148,6 +148,11 @@ def format_date(date):
 def format_thousands(value):
     return '{:,.1f}'.format(float(value))
 
+# def format_is_positive(value, good, bad):
+#     if (float(value)>=0):
+#         return good
+#     return bad
+
 j2_env = jinja2.Environment(
     loader=jinja2.FileSystemLoader(template_dir),
     trim_blocks=True)
@@ -156,5 +161,5 @@ j2_env.filters['thousands'] = format_thousands
 j2_env.filters['date'] = format_date
 
 os.makedirs(f"{output_dir}/text", exist_ok=True)
-with open(f"{output_dir}/text/index.html", 'w') as f:
-    f.write(j2_env.get_template('text.html').render(ctx))
+with open(f"{output_dir}/text/index.html", 'w', encoding='utf-8') as f:
+    f.write(j2_env.get_template('text.html.j2').render(ctx))
