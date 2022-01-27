@@ -2,11 +2,29 @@
 <html lang="en">
 <head>
     <title>COVID-19 Dashboard for Lewisham</title>
+    <style>
+        .data-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        .data-cards li {
+            flex: 0 0 130px;
+            margin: 0.5em;
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+        } 
+    </style>  
+    <script src="https://raw.githubusercontent.com/davidjbradshaw/iframe-resizer/master/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 <body>
 <h1>Cases</h1>
 <p>Data as of Friday, 21 January 2022.</p>
-<ul>
+<ul class="data-cards">
     <li>Case rate per 100,000 (all ages): 738.3</li>
     <li>Change in case rate per 100,000 (all ages): -5.8%</li>
     <li>Case rate per 100,000 (over 60s): 384.6</li>
@@ -14,7 +32,7 @@
 
 <h1>Vaccinations</h1>
 <p>Data as of Tuesday, 25 January 2022.</p>
-<ul>
+<ul class="data-cards">
     <li>Uptake of first dose (for all 12+): 67.9%</li>
     <li>Uptake of second dose (for all 12+): 62.2%</li>
     <li>Uptake of booster or third dose (for all 12+): 43.0%</li>
