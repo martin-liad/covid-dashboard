@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html lang="en">
 <head>
     <title>COVID-19 Dashboard for Lewisham</title>
@@ -17,25 +17,35 @@
             padding: 0.5em;
             border: 1px solid #ccc;
             box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-        } 
+        }
+        .data-cards .good {
+            background: #cce2d8;
+            color: #005a30;
+        }
+        .data-cards .bad {
+            background: #f6d7d2;
+            color: #942514;
+        }
     </style>  
     <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 <body>
 <h1>Cases</h1>
-<p>Data as of Saturday, 22 January 2022.</p>
+<p>Data as of Sunday, 23 January 2022.</p>
 <ul class="data-cards">
-    <li>Case rate per 100,000 (all ages): 748.1</li>
-    <li>Change in case rate per 100,000 (all ages): -1.6%</li>
-    <li>Case rate per 100,000 (over 60s): 387.0</li>
+    <li>Case rate per 100,000 (all ages): <b>752.7</b></li>
+    <li class="good">Change in case rate per 100,000 (all ages): 
+        ↓&nbsp;<b>0.0%
+        </b></li>
+    <li>Case rate per 100,000 (over 60s): <b>361.0</b></li>
 </ul>
 
 <h1>Vaccinations</h1>
-<p>Data as of Wednesday, 26 January 2022.</p>
+<p>Data as of Thursday, 27 January 2022.</p>
 <ul class="data-cards">
-    <li>Uptake of first dose (for all 12+): 68.0%</li>
-    <li>Uptake of second dose (for all 12+): 62.3%</li>
-    <li>Uptake of booster or third dose (for all 12+): 43.1%</li>
+    <li>Uptake of first dose (for all 12+): <b>68.0%</b></li>
+    <li>Uptake of second dose (for all 12+): <b>62.3%</b></li>
+    <li>Uptake of booster or third dose (for all 12+): <b>43.2%</b></li>
 </ul>
 </body>
 </html>
