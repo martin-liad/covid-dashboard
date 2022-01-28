@@ -3,12 +3,48 @@
 <head>
     <title>COVID-19 Dashboard for Lewisham</title>
     <style>
+        html {
+            line-height: 1.15;
+            font-family: "Open Sans", sans-serif;
+            font-weight: 400;
+            font-size: 62.5%;
+            color: #3a3a3a;
+        }
+        body {
+            font-size: 1.6rem;
+        }
+        p {
+            margin: 1.25em 0 0;
+            letter-spacing: -0.333333px;
+            line-height: 1.5;
+            color: inherit;
+        }
+        h2 {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 500;
+            line-height: 1.25;
+            font-size: 2.4rem;
+            margin: 1.5em 0 0;
+            color: #2b4972;
+        }
+        @media (min-width: 720px) {
+            h2 {
+                line-height: 3.6rem;
+                font-size: 2.4rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            h2 {
+                line-height: 4.2rem;
+                font-size: 3rem;
+            }
+        }
         .data-cards {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             list-style-type: none;
-            margin: 0;
+            margin: 1em 0 0 0;
             padding: 0;
         }
         .data-cards li {
@@ -30,7 +66,7 @@
     <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 <body>
-<h1>Cases</h1>
+<h2>Cases</h2>
 <p>Data as of Sunday, 23 January 2022.</p>
 <ul class="data-cards">
     <li>Case rate per 100,000 (all ages): <b>752.7</b></li>
@@ -40,7 +76,7 @@
     <li>Case rate per 100,000 (over 60s): <b>361.0</b></li>
 </ul>
 
-<h1>Vaccinations</h1>
+<h2>Vaccinations</h2>
 <p>Data as of Thursday, 27 January 2022.</p>
 <ul class="data-cards">
     <li>Uptake of first dose (for all 12+): <b>68.0%</b></li>
