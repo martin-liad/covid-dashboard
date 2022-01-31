@@ -1,30 +1,77 @@
 <!DOCTYPE html >
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://lewisham.gov.uk/assets/static/favicon.ico" type="image/x-icon">
     <title>COVID-19 Dashboard for Lewisham</title>
     <style>
+        /* Open Sans @font-face kit */
+        /* BEGIN Light */
+        @font-face {
+        font-family: 'Open Sans';
+        src: url(https://lewisham.gov.uk/assets/fonts/804037562eabaa5dbefa4a435206d017.eot);
+        src: url(https://lewisham.gov.uk/assets/fonts/804037562eabaa5dbefa4a435206d017.eot?#iefix) format('embedded-opentype'), url(https://lewisham.gov.uk/assets/fonts/edab3663655deaddbc4baf33e83838dd.woff) format('woff'), url(https://lewisham.gov.uk/assets/fonts/9ff12f694e5951a6f51a9d63b05062e7.ttf) format('truetype'), url(https://lewisham.gov.uk/assets/images/e08908016de40f1d9771e8b49458abee.svg#OpenSansLight) format('svg');
+        font-weight: 300;
+        font-style: normal;
+        }
+        /* END Light */
+        /* BEGIN Regular */
+        @font-face {
+        font-family: 'Open Sans';
+        src: url(https://lewisham.gov.uk/assets/fonts/a35546eef3ea0de0d4735f23b0a0873b.eot);
+        src: url(https://lewisham.gov.uk/assets/fonts/a35546eef3ea0de0d4735f23b0a0873b.eot?#iefix) format('embedded-opentype'), url(https://lewisham.gov.uk/assets/fonts/552ea4cf95b85269f5a3b5b1e2b2eedb.woff) format('woff'), url(https://lewisham.gov.uk/assets/fonts/d7d5d4588a9f50c99264bc12e4892a7c.ttf) format('truetype'), url(https://lewisham.gov.uk/assets/images/59a02b9bef149cf597d9323d303b35b2.svg#OpenSansRegular) format('svg');
+        font-weight: 400;
+        font-style: normal;
+        }
+        /* END Regular */
+        /* BEGIN Semibold */
+        @font-face {
+        font-family: 'Open Sans';
+        src: url(https://lewisham.gov.uk/assets/fonts/0ea04502930623aa3de110aac9f9e4fd.eot);
+        src: url(https://lewisham.gov.uk/assets/fonts/0ea04502930623aa3de110aac9f9e4fd.eot?#iefix) format('embedded-opentype'), url(https://lewisham.gov.uk/assets/fonts/1d8cbd42230b32f36e03e5fa9cfc27bc.woff) format('woff'), url(https://lewisham.gov.uk/assets/fonts/e1c83f9474e0cc1d84a13c6d1ddf3ca5.ttf) format('truetype'), url(https://lewisham.gov.uk/assets/images/a2d9760f335e399567adf3b6407efe1a.svg#OpenSansSemibold) format('svg');
+        font-weight: 500;
+        font-style: normal;
+        }
+        /* END Semibold */
+        /* BEGIN Bold */
+        @font-face {
+        font-family: 'Open Sans';
+        src: url(https://lewisham.gov.uk/assets/fonts/7ae9b8ba7886341831bf7c85a0da40d0.eot);
+        src: url(https://lewisham.gov.uk/assets/fonts/7ae9b8ba7886341831bf7c85a0da40d0.eot?#iefix) format('embedded-opentype'), url(https://lewisham.gov.uk/assets/fonts/8dd1fba73ff945cf492243e58a13877e.woff) format('woff'), url(https://lewisham.gov.uk/assets/fonts/f5331cb6372b6c0d8baf2dd7e200498c.ttf) format('truetype'), url(https://lewisham.gov.uk/assets/images/fedf49d31f55f4beaf2c891f3875554f.svg#OpenSansBold) format('svg');
+        font-weight: 600;
+        font-style: normal;
+        }
+        /* END Bold */
+
+        /* Lewisham styles */
+
         html {
             line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
             font-family: "Open Sans", sans-serif;
-            font-weight: 400;
             font-size: 62.5%;
+            font-weight: 400;
             color: #3a3a3a;
         }
         body {
+            margin: 0;
             font-size: 1.6rem;
         }
         p {
             margin: 1.25em 0 0;
-            letter-spacing: -0.333333px;
             line-height: 1.5;
+            letter-spacing: -0.333333px;
             color: inherit;
         }
         h2 {
-            font-family: "Open Sans", sans-serif;
-            font-weight: 500;
-            line-height: 1.25;
-            font-size: 2.4rem;
             margin: 1.5em 0 0;
+            line-height: 1.25;
+            font-family: "Open Sans", sans-serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.333333px;
             color: #2b4972;
         }
         @media (min-width: 720px) {
@@ -38,6 +85,13 @@
                 line-height: 4.2rem;
                 font-size: 3rem;
             }
+        }
+        .accessibility-hidden {
+            position: absolute;
+            top: 0;
+            left: -999999999px;
+            width: 1px;
+            height: 1px;
         }
         .data-cards {
             display: flex;
