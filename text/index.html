@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
     <link rel="shortcut icon" href="https://lewisham.gov.uk/assets/static/favicon.ico" type="image/x-icon">
-    <title>COVID-19 Dashboard for Lewisham</title>
+    <title>COVID-19 statistics for Lewisham</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -109,10 +109,11 @@
             padding: 0;
         }
         .data-cards li {
-            flex: 0 0 130px;
+            flex: 0 0 150px;
             margin: 0.5em;
             padding: 0.5em;
             border: 1px solid #ccc;
+            border-radius: 10px;
             box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
         }
         .data-cards .title {
@@ -126,6 +127,12 @@
             font-size: 200%;
             text-align: center;
             margin: .5em 0 .5em 0;
+            color: #333333;
+        }
+        .data-cards .info {
+            display: block;
+            font-size: 80%;
+            text-align: left;
         }
         .data-cards .good {
             background: #cce2d8;
@@ -140,44 +147,52 @@
 </head>
 <body>
 <h2>Cases</h2>
-<p>New infections or reinfections in Lewisham, as of Saturday, 29 January 2022.</p>
+<p>New infections or reinfections in Lewisham as of Saturday, 29 January 2022.</p>
 
 <p class="accessibility-hidden">The numbers at a glance:</p>
 <ul class="data-cards">
-    <li><span class="title">Last seven days:</span> 
-        <span class="content">2,351</span></li>
-    <li><span class="title">Previously:</span> 
-        <span class="content">2,549</span></li>
-    <li><span class="title">Change:</span>
+    <li><span class="title">Last seven days</span> 
+        <span class="content">2,351 <span class="accessibility-hidden">new cases.</span></span>
+        <span class="info">DATE - DATE</span></li>
+    <li><span class="title">Previous seven days</span> 
+        <span class="content">2,549</span> <span class="accessibility-hidden">new cases.</span>
+        <span class="info">DATE - DATE</span></li>
+    <li><span class="title">Change</span>
         <span class="content good">
-        ↓&nbsp;-198</span></li>
+        -198 
+        🠗&nbsp;<span class="accessibility-hidden">new cases.</span></span>
+        
+        <span class="info">Or 
+        <span class="good">
+        -7.8%</span>
+        since the previous period.
+        </span></li>
 </ul>
-<p class="accessibility-hidden">In detail, this means:</p>
+<p class="accessibility-hidden">In more detail:</p>
 <ul class="list">
     <li>In the seven days between DATE and DATE, 2,351 people in Lewisham tested positive for COVID-19.</li>
-    <li>In the previous period between DATE and DATE, 2549 people tested positive.</li>
-    <li>This means that 
-        <strong>we saw a reduction of 198, which means 7.8% fewer new cases</strong>
-        , compared to the previous period.</li>
+    <li>In the previous period between DATE and DATE, 2,549 people tested positive.</li>
+    <li><strong>We saw 198 fewer new cases, which is a reduction of 7.8%,</strong>
+         compared to the previous seven-day period.</li>
 </ul>
 
-<p>Note that these numbers are not directly comparable between neighbouring boroughs, or with London or England, as population sizes of these places varies widely. Please the the next section on case rates if you want to compare covid infections between different places.</p>
+<p>Note that these numbers are not directly comparable between neighbouring boroughs, or with London as a whole, as population sizes of these places vary widely. See the the next section on case rates if you want to compare COVID-19 infection levels between different places.</p>
 
 <p>If you are concerned about infection, <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/health" target="_top">check how to protect yourself and others from COVID-19</a>, and <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/get-tested-for-covid19" target="_top">book a COVID-19 test if you have symptoms</a>.</p>
 
 <h2>Case rate</h2>
-<p>The case rate allows us to compare infection levels between different places and populations.</p>
+<p>Updated infection levels in Lewisham compared to London and England.</p>
 
 <p class="accessibility-hidden">Current case rates at a glance:</p>
 <ul class="data-cards">
-    <li><span class="title">Case rate in Lewisham:</span> 
-        <span class="content">770.0</span></li>
-    <li><span class="title">Case rate in London:</span> 
-        <span class="content">None</span></li>
-    <li><span class="title">Case rate in England:</span> 
-        <span class="content">None</span></li>
+    <li><span class="title">Case rate in Lewisham</span> 
+        <span class="content">770.0 <span class="accessibility-hidden">new cases per 100,000 people.</span></span></li>
+    <li><span class="title">Case rate in London</span> 
+        <span class="content">None <span class="accessibility-hidden">new cases per 100,000 people.</span></span></li>
+    <li><span class="title">Case rate in England</span> 
+        <span class="content">None <span class="accessibility-hidden">new cases per 100,000 people.</span></span></li>
 </ul>
-<p class="accessibility-hidden">In detail, this means:</p>
+<p class="accessibility-hidden">In more detail:</p>
 <ul class="list">
     <li><strong>Lewisham had a higher case rate than London</strong> over the last seven days, which means infections were more widespread in Lewisham than in London as a whole.</li>
     <li><strong>Lewisham had a lower case rate than England</strong> in the same period, which means infections were less widespread in Lewisham than in England as a whole.</li>
@@ -189,22 +204,22 @@
 <p>The case rate allows us to compare infection levels between places that have very different population sizes. It is calculated as the number of COVID-19 infections in a region over the previous 7 days, divided by the population size of the region.</p>
 
 <h2>Vaccinations</h2>
-<p>Percentage of people in Lewisham age 12 and over who have received vaccination doses. Data as of Wednesday, 02 February 2022.</p>
+<p>Percentage of residents in Lewisham age 12 and over who have received vaccination doses. Data as of Wednesday, 02 February 2022.</p>
 <p class="accessibility-hidden">Vaccination numbers at a glance:</p>
 <ul class="data-cards">
-    <li><span class="title">First dose:</span>
-        <span class="content">68.2%</span></li>
-    <li><span class="title">Second dose: </span>
-        <span class="content">62.5%</span></li>
-    <li><span class="title">Third dose or booster:</span> 
-        <span class="content">43.6%</span></li>
+    <li><span class="title">First dose</span>
+        <span class="content">68.2% <span class="accessibility-hidden">of residents.</span></span></li>
+    <li><span class="title">Second dose </span>
+        <span class="content">62.5% <span class="accessibility-hidden">of residents.</span></span></li>
+    <li><span class="title">Third dose or booster</span> 
+        <span class="content">43.6% <span class="accessibility-hidden">of residents.</span></span></li>
 </ul>
-<p class="accessibility-hidden">In detail, this means:</p>
+<p class="accessibility-hidden">In more detail:</p>
 <ul class="list">
     <li>...</li>
 </ul>
 
-<p>You can protect yourself against infection by getting vaccinated. <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/covid19-vaccine" target="_top">Get more information about the COVID-19 vaccine</a> or <a href="https://www.nhs.uk/service-search/find-a-walk-in-coronavirus-covid-19-vaccination-site" target="_blank">find a COVID-19 vaccination walk-in clinic</a>.</p>
+<p>You can get vaccinated to protect yourself against infection. <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/covid19-vaccine" target="_top">Get more information about the COVID-19 vaccine</a> or <a href="https://www.nhs.uk/service-search/find-a-walk-in-coronavirus-covid-19-vaccination-site" target="_blank">find a COVID-19 vaccination walk-in clinic</a>.</p>
 
 <p>For more detailed COVID-19 statistics and information about other regions visit the <a href="https://coronavirus.data.gov.uk/" target="_blank">Gov.uk Coronavirus Dashboard</a>.</p>
 </body>
