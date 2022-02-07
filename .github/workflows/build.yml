@@ -13,7 +13,7 @@ on:
   # Runs daily at 9:00am and 1:00pm
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 9,13 * * *'
+    - cron:  '15/20 8-22 * * *'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
