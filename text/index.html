@@ -144,12 +144,26 @@
             background: #f6d7d2;
             color: #942514;
         }
+        .data-cards .good .value:after {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.6em;
+            /*position: absolute;*/
+            vertical-align: top;
+            content: "\00a0\2191"; /* &nbsp; + down arrow */
+        }
+        .data-cards .bad .value:after {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.6em;
+            /*position: absolute;*/
+            vertical-align: top;
+            content: "\00a0\2193"; /* &nbsp; + up arrow */
+        }
     </style>  
     <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
 </head>
 <body>
 
-<p>Last updated on Monday, 07 February 2022 at 09:29.</p>
+<p>Last updated on Monday, 07 February 2022 at 10:51.</p>
 
 <h2>Cases</h2>
 <p>New COVID-19 infections or reinfections in Lewisham over a seven-day period.</p>
@@ -164,8 +178,8 @@
         <span class="info">From <nobr>19 January 2022</nobr> to <nobr>25 January 2022</nobr>.</span></li>
     <li><span class="title">Change</span>
         <span class="content good">
-        -13.2%
-        &#129047;&nbsp;<span class="accessibility-hidden">new cases.</span></span>
+        <span class="value">-13.2%</span>
+        <span class="accessibility-hidden">new cases.</span></span>
         
         <span class="info">A change of
         <span class="good">
