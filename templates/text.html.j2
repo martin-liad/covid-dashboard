@@ -1,0 +1,275 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+    <link rel="shortcut icon" href="https://lewisham.gov.uk/assets/static/favicon.ico" type="image/x-icon">
+    <title>COVID-19 statistics for Lewisham</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        html {
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            font-family: "Open Sans", sans-serif;
+            font-size: 62.5%;
+            font-weight: 400;
+            color: #3a3a3a;
+        }
+        body {
+            margin: 0;
+            font-size: 1.6rem;
+        }
+        p {
+            margin: 1.25em 0 0 0;
+            line-height: 1.5;
+            letter-spacing: -0.333333px;
+            color: inherit;
+        }
+        a {
+            color: #007e8f;
+            font-weight: bold;
+        }
+        h2, h3 {
+            font-family: "Open Sans", sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.333333px;
+            color: #2b4972;
+        }
+        h2 {
+            margin: 1.5em 0 0 0;
+            line-height: 1.25;
+            font-size: 2.4rem;
+        }
+        @media (min-width: 720px) {
+            h2 {
+                line-height: 3.6rem;
+                font-size: 2.4rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            h2 {
+                line-height: 4.2rem;
+                font-size: 3rem;
+            }
+        }
+        h3 {
+            margin: 1em 0 -0.4em 0;
+            line-height: 1.25;
+            font-size: 2rem;
+        }
+        @media (min-width: 720px) {
+            h3 {
+                line-height: 3rem;
+                font-size: 2rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            h3 {
+                line-height: 3.6rem;
+                font-size: 2.4rem;
+            }
+        }
+        ul.list {
+            margin: 1.9em 0 0 1em;
+            padding: 0;
+            list-style: none;
+        }
+        ul.list li {
+            margin: 1em 0 0 1em;
+            list-style-type: none;
+            line-height: 1.5em;
+        }
+        ul.list li:before {
+            content: '\2B24';
+            font-size: 0.8em;
+            color: #009EB3;
+            display: inline-block;
+            width: 1em;
+            margin-left: -2em;
+            padding-right: 1em;
+        }
+        .accessibility-hidden {
+            position: absolute;
+            top: 0;
+            left: -999999999px;
+            width: 1px;
+            height: 1px;
+        }
+        .data-cards {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style-type: none;
+            /* max-width: 700px; */
+            margin: 1em 0 0 0;
+            padding: 0;
+        }
+        .data-cards li {
+            flex: 0 0 150px;
+            margin: 0.5em;
+            /* margin: 0.5em auto 0.5em auto; */
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+        }
+        .data-cards h3 {
+            line-height: 1.15;
+            margin: 0;
+            padding: 0;
+            font-size: 80%;
+            font-weight: bold;
+            color: #007e8f;
+        }
+        .data-cards .content {
+            display: block;
+            font-size: 200%;
+            text-align: center;
+            line-height: 1.15;
+            margin: .5em 0 .5em 0;
+            color: #333333;
+        }
+        .data-cards .info {
+            display: block;
+            font-size: 80%;
+            text-align: left;
+            line-height: 1.15;
+        }
+        .data-cards .good {
+            background: #cce2d8;
+            color: #005a30;
+        }
+        .data-cards .bad {
+            background: #f6d7d2;
+            color: #942514;
+        }
+        .data-cards .good .value:after {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.6em;
+            /*position: absolute;*/
+            vertical-align: top;
+            content: "\00a0\2193"; /* &nbsp; + down arrow */
+        }
+        .data-cards .bad .value:after {
+            font-family: Helvetica, Arial, sans-serif;
+            font-size: 0.6em;
+            /*position: absolute;*/
+            vertical-align: top;
+            content: "\00a0\2191"; /* &nbsp; + up arrow */
+        }
+    </style>  
+    <script src="https://cdn.jsdelivr.net/npm/iframe-resizer@4.3.2/js/iframeResizer.contentWindow.min.js"></script>
+</head>
+<body>
+
+<p>Last updated on {{today|long_datetime}}.</p>
+
+<h2>Cases</h2>
+<p>New COVID-19 infections or reinfections in Lewisham over a seven-day period.</p>
+
+<p class="accessibility-hidden">The numbers at a glance:</p>
+<ul class="data-cards">
+    <li><h3>Last seven days</h3>
+        <p class="content">
+        <span class="accessibility-hidden">There were</span>
+        {{cases|thousands}} 
+        <span class="accessibility-hidden">new cases.</span></p>
+        <p class="info">From {{cases_start_date|date}} to {{cases_end_date|date}}.</p></li>
+    <li><h3>Previous seven days</h3> 
+        <p class="content">
+        <span class="accessibility-hidden">Previously there were</span>
+        {{previous_cases|thousands}} 
+        <span class="accessibility-hidden">new cases.</span></p>
+        <p class="info">From {{previous_cases_start_date|date}} to {{previous_cases_end_date|date}}.</p></li>
+    <li><h3>Change</h3>
+        {% if direction=='UP' -%}<p class="content bad">
+        {% elif direction=='DOWN' -%}<p class="content good">
+        {% else -%}<p class="content">
+        {% endif -%}
+        <span class="value">{{cases_change_percent}}%</span>
+        <span class="accessibility-hidden">new cases.</span></p>
+        
+        <p class="info">A change of 
+        {% if direction=='UP' -%}<span class="bad">
+        {% elif direction=='DOWN' -%}<span class="good">
+        {% else -%}<span>
+        {% endif -%} 
+        {{cases_change|thousands}} new cases</span>
+        between periods.
+        </p></li>
+</ul>
+<p class="accessibility-hidden">In more detail:</p>
+<ul class="list">
+    <li>{{cases|thousands}} people in Lewisham tested positive for COVID-19 in the last seven days, while {{previous_cases|thousands}} people tested positive in the previous seven-day period.</li>
+    <li>{% if direction=='UP' %}<strong>There were {{cases_change|thousands}} more new cases, which is an increase of {{cases_change_percent}}%</strong>,
+        {% elif direction=='DOWN' %}<strong>There were {{cases_change|abs|thousands}} fewer new cases, which is a reduction of {{cases_change_percent|abs}}%</strong>,
+        {% else %}<strong>There was no significant change in infections or reinfections</strong>
+        {% endif %} compared to the previous seven-day period.</li>
+</ul>
+
+<p>Since 31 January 2022, national reporting of COVID-19 cases has changed to also include possible reinfections. Our case numbers follow the new definition, which means they include both new infections and reinfections.</p>
+ 
+<p>Note that these numbers are not directly comparable between neighbouring boroughs, or with London as a whole, as population sizes of these places vary widely. See the next section on case rates if you want to compare COVID-19 infection levels between different places.</p>
+
+<p>If you are concerned about infection <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/health/public-health" target="_top">check how to protect yourself and others from COVID-19</a>, and <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/get-tested-for-covid19/rapid-testing-for-covid19" target="_top">get tested for COVID-19 if you have symptoms</a>.</p>
+
+<h2>Case rate</h2>
+<p>Number of new cases per 100,000 people over a seven-day period, between {{cases_start_date|date}} and {{cases_end_date|date}}.</p>
+
+<p class="accessibility-hidden">At a glance:</p>
+<ul class="data-cards">
+    <li><h3>Case rate in Lewisham</h3> 
+        <p class="content">{{case_rate|thousands_1f}} <span class="accessibility-hidden">new cases per 100,000 people.</span></p></li>
+    <li><h3>Case rate in London</h3> 
+        <p class="content">{{case_rate_london|thousands_1f}} <span class="accessibility-hidden">new cases per 100,000 people.</span></p></li>
+    <li><h3>Case rate in England</h3> 
+        <p class="content">{{case_rate_england|thousands_1f}} <span class="accessibility-hidden">new cases per 100,000 people.</span></p></li>
+</ul>
+<p class="accessibility-hidden">In more detail:</p>
+<ul class="list">
+    <li>{% if case_rate>case_rate_london -%}<strong>Lewisham had a higher case rate than London</strong> over the last seven days, which means infections were more widespread in Lewisham than in London as a whole.
+        {% elif case_rate<case_rate_london -%}<strong>Lewisham had a lower case rate than London</strong> over the last seven days, which means infections were less widespread in Lewisham than in London as a whole.
+        {% else -%}<strong>Lewisham had the same case rate as London as a whole.</strong>
+        {% endif %}</li>
+    <li>{% if case_rate>case_rate_england -%}<strong>Lewisham had a higher case rate than England</strong> over the last seven days, which means infections were more widespread in Lewisham than in London as a whole.
+        {% elif case_rate<case_rate_england -%}<strong>Lewisham had a lower case rate than England</strong> over the last seven days, which means infections were less widespread in Lewisham than in England as a whole.
+        {% else -%}<strong>Lewisham had the same case rate as London as a whole.</strong>
+        {% endif %}</li>
+    <li>{% if case_rate_60s>case_rate -%}<strong>In Lewisham, the case rate for people aged 60 and over was higher than for the overall population of the borough</strong>, at {{case_rate_60s|thousands_1f}} cases per 100,000 residents. This means people aged 60 and over were more likely to be infected than the overall population of the borough.
+        {% elif case_rate_60s<case_rate -%}<strong>In Lewisham, the case rate for people aged 60 and over was lower than for the overall population of the borough</strong>, at {{case_rate_60s|thousands_1f}} cases per 100,000 residents. This means people aged 60 and over were less likely to be infected than the overall population of the borough.
+        {% else -%}<strong>In Lewisham, the case rate for people aged 60 and over was about the same as for the overall population of the borough</strong>, at {{case_rate_60s|thousands_1f}} cases per 100,000 residents. This means people aged 60 and over were about as likely to be infected as the overall population of the borough.
+        {% endif %}</li>
+</ul>
+
+<h3>What do these numbers mean and why is the case rate important?</h3>
+
+<p>The case rate allows us to compare infection levels between regions and population groups that have very different sizes. A higher case rate means COVID-19 infections are more widespread in a region, relative to the size of the population. The case rate is calculated as the total number of new COVID-19 cases in a region over a period of seven days, divided by the population size of the region, and multiplied by 100,000.</p>
+
+<h2>Vaccinations</h2>
+<p>Percentage of residents in Lewisham age 12 and over who have received a COVID-19 vaccination dose as of {{vaccinations_date|long_date}}.</p>
+<p class="accessibility-hidden">At a glance:</p>
+<ul class="data-cards">
+    <li><h3>First dose</h3>
+        <p class="content">{{vaccinations_dose_1}}% <span class="accessibility-hidden">of residents.</span></p></li>
+    <li><h3>Second dose</h3>
+        <p class="content">{{vaccinations_dose_2}}% <span class="accessibility-hidden">of residents.</span></p></li>
+    <li><h3>Third dose or booster</h3> 
+        <p class="content">{{vaccinations_dose_3}}% <span class="accessibility-hidden">of residents.</span></p></li>
+</ul>
+<p class="accessibility-hidden">In more detail:</p>
+<ul class="list">
+    <li><strong>{{vaccinations_dose_1_people|thousands}} people in Lewisham have had their first dose of the COVID-19 vaccine</strong>, meaning {{vaccinations_dose_1}}% of the population in Lewisham aged 12 years and over have received the first dose of their COVID-19 vaccination.</li>
+    <li><strong>{{vaccinations_dose_2_people|thousands}} people in Lewisham have had their second dose</strong>, meaning {{vaccinations_dose_2}}% of the population in Lewisham have received the second dose of their COVID-19 vaccination.</li>
+    <li><strong>{{vaccinations_dose_3_people|thousands}} people in Lewisham have had their third dose or booster</strong>, meaning {{vaccinations_dose_3}}% of the population have received their third dose or booster.</li>
+</ul>
+
+<p>You can get vaccinated to protect yourself against infection. <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/covid19-vaccine/vaccination-for-covid-19" target="_top">Get more information about the COVID-19 vaccine</a> or <a href="https://www.nhs.uk/service-search/find-a-walk-in-coronavirus-covid-19-vaccination-site" target="_blank">find a COVID-19 vaccination walk-in clinic</a>. Lewisham residents have written about their <a href="https://lewisham.gov.uk/articles/blogs/your-experiences-of-getting-the-covid19-vaccine" target="_top">experiences of getting the COVID-19 vaccine</a>.</p>
+
+<p>For more detailed COVID-19 statistics visit the <a href="https://coronavirus.data.gov.uk/" target="_blank">Gov.uk Coronavirus Dashboard</a>.</p>
+</body>
+</html>
