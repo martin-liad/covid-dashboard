@@ -118,8 +118,10 @@
             border-radius: 10px;
             box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
         }
-        .data-cards .title {
-            display: block;
+        .data-cards h3 {
+            line-height: 1.15;
+            margin: 0;
+            padding: 0;
             font-size: 80%;
             font-weight: bold;
             color: #007e8f;
@@ -128,6 +130,7 @@
             display: block;
             font-size: 200%;
             text-align: center;
+            line-height: 1.15;
             margin: .5em 0 .5em 0;
             color: #333333;
         }
@@ -135,6 +138,7 @@
             display: block;
             font-size: 80%;
             text-align: left;
+            line-height: 1.15;
         }
         .data-cards .good {
             background: #cce2d8;
@@ -163,29 +167,35 @@
 </head>
 <body>
 
-<p>Last updated on Monday, 07 February 2022 at 14:10.</p>
+<p>Last updated on Monday, 07 February 2022 at 14:44.</p>
 
 <h2>Cases</h2>
 <p>New COVID-19 infections or reinfections in Lewisham over a seven-day period.</p>
 
 <p class="accessibility-hidden">The numbers at a glance:</p>
 <ul class="data-cards">
-    <li><span class="title">Last seven days</span> 
-        <span class="content">2,198 <span class="accessibility-hidden">new cases.</span></span>
-        <span class="info">From 26 January 2022 to 01 February 2022.</span></li>
-    <li><span class="title">Previous seven days</span> 
-        <span class="content">2,533</span> <span class="accessibility-hidden">new cases.</span>
-        <span class="info">From 19 January 2022 to 25 January 2022.</span></li>
-    <li><span class="title">Change</span>
-        <span class="content good">
+    <li><h3>Last seven days</h3>
+        <p class="content">
+        <span class="accessibility-hidden">There were</span>
+        2,198 
+        <span class="accessibility-hidden">new cases.</span></p>
+        <p class="info">From 26 January 2022 to 01 February 2022.</p></li>
+    <li><h3>Previous seven days</h3> 
+        <p class="content">
+        <span class="accessibility-hidden">Previously there were</span>
+        2,533</span> 
+        <span class="accessibility-hidden">new cases.</p>
+        <p class="info">From 19 January 2022 to 25 January 2022.</p></li>
+    <li><h3>Change</h3>
+        <p class="content good">
         <span class="value">-13.2%</span>
-        <span class="accessibility-hidden">new cases.</span></span>
+        <span class="accessibility-hidden">new cases.</span></p>
         
-        <span class="info">A change of
+        <p class="info">A change of 
         <span class="good">
-        -335 cases</span>
+        -335 new cases</span>
         between periods.
-        </span></li>
+        </p></li>
 </ul>
 <p class="accessibility-hidden">In more detail:</p>
 <ul class="list">
@@ -196,7 +206,7 @@
 
 <p>Since 31 January 2022, national reporting of COVID-19 cases has changed to also include possible reinfections. Our case numbers follow the new definition, which means they include both new infections and reinfections.</p>
  
-<p>Note that these numbers are not directly comparable between neighbouring boroughs, or with London as a whole, as population sizes of these places vary widely. See the the next section on case rates if you want to compare COVID-19 infection levels between different places.</p>
+<p>Note that these numbers are not directly comparable between neighbouring boroughs, or with London as a whole, as population sizes of these places vary widely. See the next section on case rates if you want to compare COVID-19 infection levels between different places.</p>
 
 <p>If you are concerned about infection <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/health/public-health" target="_top">check how to protect yourself and others from COVID-19</a>, and <a href="https://lewisham.gov.uk/myservices/coronavirus-covid-19/get-tested-for-covid19/rapid-testing-for-covid19" target="_top">get tested for COVID-19 if you have symptoms</a>.</p>
 
@@ -205,12 +215,12 @@
 
 <p class="accessibility-hidden">At a glance:</p>
 <ul class="data-cards">
-    <li><span class="title">Case rate in Lewisham</span> 
-        <span class="content">719.9 <span class="accessibility-hidden">new cases per 100,000 people.</span></span></li>
-    <li><span class="title">Case rate in London</span> 
-        <span class="content">842.6 <span class="accessibility-hidden">new cases per 100,000 people.</span></span></li>
-    <li><span class="title">Case rate in England</span> 
-        <span class="content">973.3 <span class="accessibility-hidden">new cases per 100,000 people.</span></span></li>
+    <li><h3>Case rate in Lewisham</h3> 
+        <p class="content">719.9 <span class="accessibility-hidden">new cases per 100,000 people.</span></p></li>
+    <li><h3>Case rate in London</h3> 
+        <p class="content">842.6 <span class="accessibility-hidden">new cases per 100,000 people.</span></p></li>
+    <li><h3>Case rate in England</h3> 
+        <p class="content">973.3 <span class="accessibility-hidden">new cases per 100,000 people.</span></p></li>
 </ul>
 <p class="accessibility-hidden">In more detail:</p>
 <ul class="list">
@@ -230,12 +240,12 @@
 <p>Percentage of residents in Lewisham age 12 and over who have received a COVID-19 vaccination dose as of Saturday, 05 February 2022.</p>
 <p class="accessibility-hidden">At a glance:</p>
 <ul class="data-cards">
-    <li><span class="title">First dose</span>
-        <span class="content">68.2% <span class="accessibility-hidden">of residents.</span></span></li>
-    <li><span class="title">Second dose </span>
-        <span class="content">62.6% <span class="accessibility-hidden">of residents.</span></span></li>
-    <li><span class="title">Third dose or booster</span> 
-        <span class="content">43.8% <span class="accessibility-hidden">of residents.</span></span></li>
+    <li><h3>First dose</h3>
+        <p class="content">68.2% <span class="accessibility-hidden">of residents.</span></p></li>
+    <li><h3>Second dose</h3>
+        <p class="content">62.6% <span class="accessibility-hidden">of residents.</span></p></li>
+    <li><h3>Third dose or booster</h3> 
+        <p class="content">43.8% <span class="accessibility-hidden">of residents.</span></p></li>
 </ul>
 <p class="accessibility-hidden">In more detail:</p>
 <ul class="list">
