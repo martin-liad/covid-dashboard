@@ -230,17 +230,22 @@ ctx['vaccinations_dose_3_people'] = vaccinations_record['cumPeopleVaccinatedThir
 def format_date(date):
     if date is None:
         return None
-    return date.strftime('%d %B %Y')
+    # Unfortunately, Python has no cross-platform strftime code for day-of-month 
+    # without leading zeros -- so we need to mix and match our formatting.
+    # return date.strftime('%d %B %Y')
+    return date.strftime(f"{date.day} %B %Y")
 
 def format_long_date(date):
     if date is None:
         return None
-    return date.strftime('%A, %d %B %Y')
+    # return date.strftime('%A, %d %B %Y')
+    return date.strftime(f"%A, {date.day} %B %Y")
 
 def format_long_datetime(date):
     if date is None:
         return None
-    return date.strftime('%A, %d %B %Y at %H:%M')
+    # return date.strftime('%A, %d %B %Y at %H:%M')
+    return date.strftime(f"%A, {date.day} %B %Y at %H:%M")
 
 # Jinja2 filter to apply thousands separator, no decimal places.
 def format_thousands(value):
